@@ -1,0 +1,8 @@
+CREATE TABLE cars1
+(
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+          Brand TEXT,
+    Model TEXT,
+    PersonId INTEGER,
+    FOREIGN KEY (PersonId) REFERENCES  Persons(Id)
+);

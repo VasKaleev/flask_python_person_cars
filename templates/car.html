@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" href="{{ url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+    <form action="{{ url_for('add_car')}}" method="Post">
+        <!-- Брэнд: <input type="text" name = "Brand"> <br><br>
+        Модель: <input type="text" name = "Model"> <br><br>
+        Идентификатор персонажа:
+        <select name="PersonId">
+            {% for person in persons %}
+              <option value="{{ person.Id  }}">{{ person.Name}}</option>
+            {% endfor %}
+        </select>    
+        <input type="submit"> -->
+        {{ form.csrf_token }}
+        {% for field in form if field.name != 'csrf_token' and field.name != 'submit' %}
+            <p>{{ field.label }}</p>
+            <p>
+                {{ field }}
+                {% for error in field.errors %}
+                    {{ error }}
+                {% endfor %}
+            </p>
+        {% endfor %}
+        {{ form.submit }}
+    </form>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,46 @@
+h1 {
+	color:goldenrod;
+	display: block;
+	margin: 0 auto;
+}
+table {
+    width: 50%; /* Ширина таблицы */
+    border-collapse: collapse; /* Убираем двойные линии */
+   }
+   thead {
+    background: #dead53; /* Цвет фона заголовка */
+   }
+   td, th {
+    padding: 5px; /* Поля в ячейках */
+    border: 1px solid #333; /* Параметры рамки */
+   }
+   tbody tr:nth-child(even) {
+    background: #f0f0f0; /* Зебра */
+   }
+button {
+    background-color: #020F13; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+input[type=text] {
+    background-color: rgb(247, 243, 243);
+    background-position: 10px 10px;
+    padding-left: 40px;
+}
+input[type=text] {
+    width: 10%;
+    height: 15px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+}
+  

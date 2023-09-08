@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" href="{{ url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
+    <title>Databases</title>
+</head>
+<body>
+    {% block content %}
+    <form action="{{ url_for('add_person')}}" method="Post">
+        <!-- Имя: <input type="text" name = "Name"> <br><br>
+        Возраст: <input type="number" name = "Age" value="0"> <br><br>
+        <input type="submit"> -->
+        {{ form.csrf_token }}
+        {% for field in form if field.name != 'csrf_token' and field.name != 'submit' %}
+            <p>{{ field.label }}</p>
+            <p>
+                {{ field }}
+                {% for error in field.errors %}
+                    {{ error }}
+                {% endfor %}
+            </p>
+        {% endfor %}
+        {{ form.submit }}
+
+    </form>
+    {% endblock %}
+       
+    </body>    
+</body>
+</html>

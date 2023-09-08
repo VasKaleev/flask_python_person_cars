@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" href="{{ url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
+    <title>База данных автовладельцев</title>
+</head>
+<body>
+   <a href="{{ url_for('add_person') }}"><button>Добавить автовладельца</button></a>
+   <a href="{{ url_for('add_car') }}"><button>Добавить автомобиль</button></a>
+   
+   <h1>Автовладелец</h1>
+   <table>
+       <tr>
+           <th>Идентификатор</th>
+           <th>Имя</th>
+           <th>Возраст</th>
+           <th></th>
+       </tr>
+       {%  for person in tables['persons'] %}
+       <tr>
+           <td>{{ person.Id }}</td>
+           <td>{{ person.Name }}</td>
+           <td>{{ person.Age }}</td>
+           <td><a href="{{url_for('delete_person',id=person.Id)}}"><button>Удалить</button></a></td>
+       </tr>
+       {% endfor%}
+   </table>
+
+   <h1>Автовладелец и его машины</h1>
+   <table border="1" style="border-collapse: collapse">
+       <tr>
+           <th>Идентификатор</th>
+           <th>Брэнд</th>
+           <th>Модель</th>
+           <th>Владелец</th>
+           <th></th>
+       </tr>
+       {%  for car in tables['cars'] %}
+       <tr>
+           <td>{{ car.Id }}</td>
+           <td>{{ car.Brand }}</td>
+           <td>{{ car.Model }}</td>
+           <td>{{ car.PersonId }}</td>
+           <td><a href="{{url_for('delete_car',id=car.Id)}}"><button>Удалить</button></a></td>
+       </tr>
+       {% endfor%}
+   </table> 
+
+
+</body>
+</html>
